@@ -7,8 +7,10 @@ Run containers
 Stop containers
 > docker-compose down
 
+
 Clean unused
 > docker system prune -a
+
 
 ## Remarks
 - Adapt jar file name and Java version to use in *Dockerfile-web*
@@ -19,9 +21,9 @@ Clean unused
 - Use *db* as host for mariadb connection Spring Boot datasource
 
 ## Spring Boot configuration
-> server.port=80
-> logging.file.path=/var/logs
-> spring.datasource.url=jdbc:mariadb://db/database
-> spring.datasource.username=admin
-> spring.datasource.password=admin
-> spring.datasource.hikari.driver-class-name=org.mariadb.jdbc.Driver
+> server.port=80<br>
+> logging.file.path=/var/logs<br>
+> spring.datasource.url=jdbc:mariadb://db/database<br>
+> spring.datasource.username=admin<br>
+> spring.datasource.password=admin<br>
+> spring.datasource.hikari.driver-class-name=org.mariadb.jdbc.Driver<br>
