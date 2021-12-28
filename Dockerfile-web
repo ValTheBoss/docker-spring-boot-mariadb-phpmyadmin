@@ -1,0 +1,4 @@
+FROM openjdk:18-alpine
+#ARM jdk
+#FROM arm64v8/openjdk:15
+ENTRYPOINT ["java","-jar","/opt/app.jar"]
