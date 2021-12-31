@@ -5,13 +5,15 @@ services:
       context: .
       dockerfile: Dockerfile-web
     ports:
-        #IP:EXTERNAL:INTERNAL
       - 127.0.0.1:8001:80
     links:
       - db
+    restart: always  
     volumes:
       - ./web:/opt
       - ./log/spring:/var/logs
+    environment:
+      - TZ=Europe/Zurich
   db:
     image: mariadb
     restart: always
@@ -24,15 +26,15 @@ services:
       MARIADB_PASSWORD: admin
       MARIADB_DATABASE: database
     ports:
-        #IP:EXTERNAL:INTERNAL
       - 127.0.0.1:8002:3306
   phpmyadmin:
       image: phpmyadmin
       restart: always
       ports:
-          #IP:EXTERNAL:INTERNAL
         - 127.0.0.1:8003:80
       links:
         - db
       environment:
         - PMA_HOST=db
+        - UPLOAD_LIMIT=300M
+        - PMA_ABSOLUTE_URI=https://<domain>
